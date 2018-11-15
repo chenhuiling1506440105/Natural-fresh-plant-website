@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/nav.js"></script>
+<script type="text/javascript" src="js/jquery.superslide.2.1.1.js"></script>
+<script type="text/javascript" src="js/jquery.touchslider.js"></script>
+<!--控制banner切换效果-->
+<script type="text/javascript">
+$(document).ready(function () {
+	$(".main_visual").hover(function(){
+		$("#btn_prev,#btn_next").fadeIn()
+		},function(){
+		$("#btn_prev,#btn_next").fadeOut()
+		})
+	$dragBln = false;
+	$(".main_image").touchSlider({
+		flexible : true,
+		speed : 200,
+		btn_prev : $("#btn_prev"),
+		btn_next : $("#btn_next"),
+		paging : $(".flicking_con a"),
+		counter : function (e) {
+			$(".flicking_con a").removeClass("on").eq(e.current-1).addClass("on");
+		}
+	});
+	$(".main_image").bind("mousedown", function() {
+		$dragBln = false;
+	})
+	$(".main_image").bind("dragstart", function() {
+		$dragBln = true;
+	})
+	$(".main_image a").click(function() {
+		if($dragBln) {
+		 return false;
+		}
+	})
+	timer = setInterval(function() { $("#btn_next").click();}, 4000);
+	$(".main_visual").hover(function() {
+		clearInterval(timer);
+	}, function() {
+		timer = setInterval(function() { $("#btn_next").click();}, 4000);
+	})
+	$(".main_image").bind("touchstart", function() {
+		clearInterval(timer);
+	}).bind("touchend", function() {
+		timer = setInterval(function() { $("#btn_next").click();}, 4000);
+	})
+});
+</script>
+<title>自然清新植物网站</title>
+<meta name="keywords" content="自然清新植物网站"/>
+<meta name="description" content="自然清新植物网站"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<!-- 防止IE8,7进入怪异模式 -->
+<link href="css/style.css" type="text/css" rel="stylesheet"/>
+<link rel="icon" href="images/favicon.gif" type="image/gif">
+<link rel="shortcut icon" href="images/favicon.ico">
+</head>
+<body>
+<script language="javascript">
+function checkform3(nForm)  
+{
+	if(nForm.keys.value==""||nForm.keys.value=="搜索关键词")
+	{
+		alert("请输入关键字!");
+		nForm.keys.focus();
+		return false;
+	}
+}
+</script>
+<script type="text/javascript" src="js/zh.js"></script>
+<script>
+zh_tran('t');
+</script>
+<div class="top_bg">
+	<div class="menu b_center">
+		<div class="logo_l">
+			<a href="index.html"><img src="upload/picture/logo.png"></a>
+		</div>
+		<div class="logo_r">
+			<div class="nav">
+				<ul>
+					<li class="m on">
+					<h3><a href="index.html" title="首页">首页</a></h3>
+					</li>
+					<li class="m ">
+					<h3><a href="about.html" title="关于我们">关于我们</a></h3>
+					<li class="m ">
+					<h3><a href="news.html" title="网站动态">网站动态</a></h3>
+					</li>
+					<li class="m ">
+					<h3><a href="products.html" title="产品展示">产品展示</a></h3>
+					</li>
+					<li class="m ">
+					<h3><a href="case.html" title="案例">案例</a></h3>
+					</li>
+					<li class="m ">
+					<h3><a href="contact.html" title="联系我们">联系我们</a></h3>
+					</li>
+				</ul>
+				<script type="text/javascript"> jQuery(".nav").slide({ type:"menu",  titCell:".m", targetCell:".sub", effect:"slideDown", delayTime:300, triggerTime:100,returnDefault:true});</script>
+			</div>
+		</div>
+		<!-- clear the floats if required -->
+		<div class="clear">
+		</div>
+	</div>
+</div>
+<!--header_100 end-->
+<div class="h84">
+	&nbsp;
+</div>
+<!--banner star-->
+<div class="main_visual">
+	<div class="flicking_con">
+		<div class="flicking_inner">
+			<a href="#">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+		</div>
+	</div>
+	<!--flicking_con end-->
+	<div class="main_image">
+		<ul>
+			<li><span style="background:url(images/banner_00.jpg) no-repeat center top;"><a href="#"></a></span></li>
+			<li><span style="background:url(images/2016101712030875875.jpg) no-repeat center top;"><a href="#"></a></span></li>
+			<li><span style="background:url(images/20161017120327032703.jpg) no-repeat center top;"><a href="#"></a></span></li>
+		</ul>
+		<a href="#" id="btn_prev"></a>
+		<a href="#" id="btn_next"></a>
+	</div>
+	<!--main_image end-->
+</div>
+<!--banner end--><!--正文begin--><!--我们的服务begin-->
+<div class="i_service" style="background:url(images/i_ongbg.jpg) #fff center top no-repeat;">
+	<div class="i_service_t">
+		SERVICE
+		<h2>我们的<span>服务</span></h2>
+	</div>
+	<div class="i_service_desc">
+	拥有丰富的花卉、种子、盆栽、苗木资源，提供最新、最优质的花卉、苗木资源和养护经验。
+	</div>
+	<div class="wrap">
+		<ul class="i_service_ul">
+			<li onmouseover="$(this).find('img').attr('src','images/i_pic1_sel.png')" onmouseout="$(this).find('img').attr('src','images/i_pic1.png')"><a href="#"><img src="upload/picture/i_pic1.png"/>
+			<h2>花卉与盆栽</h2>
+			<p>丰富的培养经验，拥有良好的信誉，品种繁多，品质上乘。
+			</p>
+			</a></li>
+			<li onmouseover="$(this).find('img').attr('src','images/i_pic2_sel.png')" onmouseout="$(this).find('img').attr('src','images/i_pic2.png')"><a href="#"><img src="upload/picture/i_pic2.png"/>
+			<h2>景观苗木与观赏锦鲤</h2>
+			<p>
+				满足客户需求，享受惬意生活。
+			</p>
+			</a></li>
+			<li onmouseover="$(this).find('img').attr('src','images/i_pic3_sel.png')" onmouseout="$(this).find('img').attr('src','images/i_pic3.png')"><a href="#"><img src="upload/picture/i_pic3.png"/>
+			<h2>庭院设计与园艺产品</h2>
+			<p>
+				拥有丰富经验，为客户量身定做方案，提供优质服务。		
+			</a></li>
+		</ul>
+	</div>
+</div>
+<!--我们的服务end--><!--我们的产品begin-->
+<div class="i_product">
+	<div class="i_service_t" style="padding-top:36px;">
+		PRODUCTS
+		<h2>我们的<span>产品</span></h2>
+	</div>
+	<div class="M_7">
+		<div class="slideTxtBox3">
+			<div class="parBd">
+				<div class="picScroll-left2">
+					<div class="hd cd">
+						<a class="sNext"></a>
+						<a class="sPrev"></a>
+					</div>
+					<div class="bd dd">
+						<div style=" position: relative; width: 1084px;" class="tempWrap">
+							<ul class="picList" style="width: 1298px; left: 0px; position: relative; padding: 0pt; margin: 0pt; overflow:visible;">
+								<li><a href="#" title="茶">
+								<div class="img">
+									<img src="upload/picture/20161109113970197019.jpg" alt="茶"/>
+								</div>
+								<div class="txt2">
+									<em>查看更多</em>
+								</div>
+								<div class="txt3">
+									茶
+								</div>
+								</a></li>
+								<li><a href="#" title="茶">
+								<div class="img">
+									<img src="upload/picture/1439 (1).jpg" alt="茶"/>
+								</div>
+								<div class="txt2">
+									<em>查看更多</em>
+								</div>
+								<div class="txt3">
+									罗汉松
+								</div>
+								</a></li>
+								<li><a href="#" title="真柏">
+								<div class="img">
+									<img src="upload/picture/201701101428007272.jpg" alt="真柏"/>
+								</div>
+								<div class="txt2">
+									<em>查看更多</em>
+								</div>
+								<div class="txt3">
+									真柏
+								</div>
+								</a></li>
+								<li><a href="#" title="佛肚">
+								<div class="img">
+									<img src="upload/picture/20161109113443594359.jpg" alt="佛肚"/>
+								</div>
+								<div class="txt2">
+									<em>查看更多</em>
+								</div>
+								<div class="txt3">
+									佛肚
+								</div>
+								</a></li>
+								<li><a href="#" title="黑松">
+								<div class="img">
+									<img src="upload/picture/1453 (23).jpg" alt="黑松"/>
+								</div>
+								<div class="txt2">
+									<em>查看更多</em>
+								</div>
+								<div class="txt3">
+									黑松
+								</div>
+								</a></li>
+								<li><a href="#" title="橄榄">
+								<div class="img">
+									<img src="upload/picture/20161109113495699569.jpg" alt="橄榄"/>
+								</div>
+								<div class="txt2">
+									<em>查看更多</em>
+								</div>
+								<div class="txt3">
+									橄榄
+								</div>
+								</a></li>
+								<li><a href="#" title="庭院设计">
+								<div class="img">
+									<img src="upload/picture/20161109112696649664.jpg" alt="庭院设计"/>
+								</div>
+								<div class="txt2">
+									<em>查看更多</em>
+								</div>
+								<div class="txt3">
+									庭院设计
+								</div>
+								</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--我们的产品end--><!--网站动态begin-->
+<div class="i_service_t" style="padding-top:36px;">
+		NEWS
+	<h2>网站<span>动态</span></h2>
+</div>
+<div class="wrap m_t30">
+	<div class="i_about_l">
+		<img src="upload/picture/20170110155846284628.jpg" alt=""/>
+		<h2>中式和日式庭院的比较分析</h2>
+		<p>
+			中国传统的庭院规划深受传统哲学和绘画的影响，甚至有“绘画乃造园之母”的理论，最具参考性的是明清两代的江南私家园林。江南私家园林重视寓情于景，情景交融，寓义于物，以物比德。
+		</p>
+		<a href="#" class="i_about_more"></a>
+	</div>
+	<div class="i_about_r">
+		<ul class="blog_list">
+			<li>
+			<a href="#" title="真柏盆景修剪方法">
+			<span class="blog_Rtime l">
+			<b>10</b>
+			<em>2017-01</em>
+			</span>
+			<span class="blog_Rmore r">
+			<b>真柏盆景修剪方法</b>
+			<span>真柏不用反复进行修剪，修剪时把它最顶端的部分摘掉，可以使侧枝条生长的更加良好。春季在新生枝条与叶子时，要及时修剪，不可放任枝叶自由生长，破坏其</span>
+			</span>
+			</a>
+			</li>
+			<li>
+			<a href="#" title="苗木种植方法">
+			<span class="blog_Rtime l">
+			<b>14</b>
+			<em>2016-10</em>
+			</span>
+			<span class="blog_Rmore r">
+			<b>苗木种植方法</b>
+			<span>要保证栽植的成活，必须掌握树木生长规律及其生理变化，了解树木栽植成活的原理。栽植树木且要保证成活，要经历选苗、掘苗、装车、运输、卸车、栽植、</span>
+			</span>
+			</a>
+			</li>
+			<li>
+			<a href="#" title="浅谈中国古典园林中的假山艺术">
+			<span class="blog_Rtime l">
+			<b>14</b>
+			<em>2016-10</em>
+			</span>
+			<span class="blog_Rmore r">
+			<b>浅谈中国古典园林中的假山艺术</b>
+			<span>中国古典园林受儒、释、道思想的影响颇深,因此园林中的造景自然而然受其影响,而造园中普遍使用的叠石假山技艺精湛、成就极高,形成了特有的造山艺术。那么</span>
+			</span>
+			</a>
+			</li>
+		</ul>
+	</div>
+	<div class="c_l">
+	</div>
+</div>
+<!--公司动态end--><!--正文end--><!--尾部begin-->
+<div class="foot_txt">
+	<div class="wrap" style="position:relative;">
+	  客服电话：123456
+		<br/>
+		<a href="#" title="关于我们" class="foot_title">关于我们</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" title="网站动态">网站动态</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" title="产品展示">产品展示</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" title="工程案例">工程案例</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" title="视频中心">视频中心</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="#" title="联系我们">联系我们</a>
+		<a href="#" class="f_top" onclick="goTop()">&nbsp;</a>
+	</div>
+</div>
+<div class="f_bg">
+	<div class="b_center" style="width:1200px;">
+		<span class="l">Copyright © 自然清新植物网站&nbsp;&nbsp;</span>
+		<div class="contact_a">
+			<ul>
+				<li><a href="#" class="foot_qq"></a></li>
+				<li><a href="#" class="foot_weixin"><img src="upload/picture/ewm.png"/></a></li>
+			</ul>
+		</div>
+		<div class="c_l">
+		</div>
+	</div>
+</div>
+<!--尾部end-->
+<script language="javascript" src="js/foot.js"></script>
+</body>
+</html>
